@@ -5,7 +5,7 @@
 void lotto(int a[]){
     int neueZahl = 0;
     int nichtDiese = 0;
-    for (int i = 0; i <= 5; i++)
+    for (int i = 0; i <= 6; i++)
     {
         do{
             nichtDiese = 0;
