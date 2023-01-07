@@ -45,32 +45,12 @@ void place_ship(char board[BOARD_SIZE][BOARD_SIZE], struct ship *s) {
 
 
 struct ship ships[NUM_SHIPS];
-ships[0].x = x;
-ships[0].y = y;
-ships[0].direction = direction;
-ships[0].length = 5;
-ships[0].hits = 0;
 
-ships[1].x = x;
-ships[1].y = y;
-ships[1].direction = rand() % 2;
-ships[1].length = 4;
-ships[1].hits = 0;
+ships[i].x = NUM;
+ships[i].y = NUM;
+ships[i].direction = NUM;
+ships[i].length = i;
+ships[i].hits = 0;
 
-ships[2].x = x;
-ships[2].y = y;
-ships[2].direction = direction;
-ships[2].length = 3;
-ships[2].hits = 0;
 
-ships[3].x = x;
-ships[3].y = y;
-ships[3].direction = direction;
-ships[3].length = 3;
-ships[3].hits = 0;
 
-ships[4].x = x;
-ships[4].y = y;
-ships[4].direction = direction;
-ships[4].length = 2;
-ships[4].hits = 0;
