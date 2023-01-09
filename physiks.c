@@ -14,9 +14,9 @@ char board3[ROWS][COLUMNS];
 char board4[ROWS][COLUMNS];
 
 
-void init_board(char board[BOARD_SIZE][BOARD_SIZE]){  //Initialisiert das Spielfeld
-  for (int i = 0; i < BOARD_SIZE; i++){
-    for (int j = 0; j < BOARD_SIZE; j++){
+void init_board(char board[ROWS][COLUMNS]){  //Initialisiert das Spielfeld
+  for (int i = 0; i < ROWS; i++){
+    for (int j = 0; j < COLUMNS; j++){
       board[i][j] = EMPTY_SPACE;
     }
   }
