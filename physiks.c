@@ -1,56 +1,61 @@
-// Physiscs des Battelship Games
+#include <curses.h>
 
-#include <stdlib.h>
+#define NUM_SHIPS 5
+#define ROWS 10
+#define COLUMNS 10
+#define EMPTY_SPACE ' '
+#define SHIP_SPACE 'O'
+#define HIT_SPACE 'X'
+#define MISS_SPACE 'M'
 
-//jeweils 2 Felder pro Spieler, zum setzen und schießen
-char player1_board1[BOARD_SIZE][BOARD_SIZE];
-char player1_board2[BOARD_SIZE][BOARD_SIZE];
-char player2_board1[BOARD_SIZE][BOARD_SIZE];
-char player2_board2[BOARD_SIZE][BOARD_SIZE];
+char board1[ROWS][COLUMNS];
+char board2[ROWS][COLUMNS];
+char board3[ROWS][COLUMNS];
+char board4[ROWS][COLUMNS];
 
-void init_board(char board[BOARD_SIZE][BOARD_SIZE]) {
-  for (int i = 0; i < BOARD_SIZE; i++) {
-    for (int j = 0; j < BOARD_SIZE; j++) {
+
+void init_board(char board[BOARD_SIZE][BOARD_SIZE]){  //Initialisiert das Spielfeld
+  for (int i = 0; i < BOARD_SIZE; i++){
+    for (int j = 0; j < BOARD_SIZE; j++){
       board[i][j] = EMPTY_SPACE;
     }
   }
 }
 
-// Struktur für die Schiffe
-struct ship {
+void check_ship_placement (int row, int col, int direction, int lenght ){
+if (row < 0 || row >= ROWS || col < 0 || col >= COLUMNS) {
+return 0;
+}
+
+if (direction == 0) { // Horizontal
+    if (col + length > COLUMNS) {
+        return 0;
+    }
+
+    if (row + length > ROWS) {  // Vertical
+        return 0;
+    }
+}
+
+return 1;
+}
+
+
+struct ship{     //Struktur für die Shiffe
   int x;
   int y;
   int direction;
   int length;
   int hits;
-}
+};
 
-// Funktion um die Schiffe zu setzen
-void place_ship(char board[BOARD_SIZE][BOARD_SIZE], struct ship *s) {
-  int x = s->x;
-  int y = s->y;
-  int direction = s->direction;
-  int length = s->length;
-
-  if (direction == 0) {                         //Vertikal
-    for (int i = 0; i < length; i++) {
-      board[x + i][y] = SHIP_SPACE;
-    }
-  } else {
-    for (int i = 0; i < length; i++) {          //Horizontal
-      board[x][y + i] = SHIP_SPACE;
-    }
-  }
-}
-
-
-struct ship ships[NUM_SHIPS];
-
-ships[i].x = NUM;
-ships[i].y = NUM;
-ships[i].direction = NUM;
-ships[i].length = i;
-ships[i].hits = 0;
+struct ship shiptype[4];
+  for(int i=0, i<4 i++)
+  ships[i].x = NUM;
+  ships[i].y = NUM;
+  ships[i].direction = NUM;
+  ships[i].length = i+1;
+  ships[i].hits = 0;
 
 
 
