@@ -1,5 +1,3 @@
-// Regeln des Battelship Games
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -18,7 +16,7 @@ void print_game_field(char game_field[NUM_ROWS][NUM_COLUMNS]) {
 }
 
 //Zeigt das Begruessungsmenue
-int welcome_screen(void)
+/*int welcome_screen(void)
 { int choice = 0;
   while (choice != 1 || 2)
   {
@@ -42,7 +40,35 @@ int welcome_screen(void)
   }
   printf("\n");
 }
+}*/
+
+
+//Funktion fuer das Schiffe setzen.
+
+void place_ship(int x, int y, char direction, int length, char player[NUM_ROWS][NUM_COLUMNS]) {
+  if (direction == 'H') { // geht mit einer for-Schleife durch das Array durch und guckt, ob die Stelle, wo man das Schiff hinplatzieren moechte frei ist.
+    for (int i = 0; i < length; i++) {
+      if (player[x][y + i] != 'O') {
+        printf("Cannot place ship here.\n");
+        return;
+      }
+    }
+    for (int i = 0; i < length; i++) {
+      player[x][y + i] = 'S';
+    }
+  } else {
+    for (int i = 0; i < length; i++) {
+      if (player[x + i][y] != 'O') {
+        printf("Cannot place ship here.\n");
+        return;
+      }
+    }
+    for (int i = 0; i < length; i++) {
+      player[x + i][y] = 'S';
+    }
+  }
 }
+
 
 // Funktion zum Angreifen
 void attack(char game_field[NUM_ROWS][NUM_COLUMNS]) {

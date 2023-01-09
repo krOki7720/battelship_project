@@ -1,11 +1,9 @@
-// Regeln des Battelship Games
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM_ROWS 10 // Zeilen fuerr das Spielfeld
-#define NUM_COLUMNS 10 // Spalten fuerr das Spielfeld
+#define NUM_ROWS 10 // Zeilen für das Spielfeld
+#define NUM_COLUMNS 10 // Spalten für das Spielfeld
 
 //Funktion druckt das Spielfeld
 void print_game_field(char game_field[NUM_ROWS][NUM_COLUMNS]) {
@@ -17,7 +15,7 @@ void print_game_field(char game_field[NUM_ROWS][NUM_COLUMNS]) {
   }
 }
 
-//Zeigt das Begruessungsmenue
+//Zeigt das Begrueßungsmenue
 int welcome_screen(void)
 { int choice = 0;
   while (choice != 1 || 2)
@@ -50,9 +48,9 @@ void attack(char game_field[NUM_ROWS][NUM_COLUMNS]) {
   printf("Enter the row and column to attack: ");
   scanf("%d %d", &row, &col);
 
-  if (game_field[row][col] == 'O') { // O bedeutet Wasser
+  if (game_field[row][col] == 'O') {
     printf("Miss!\n");
-    game_field[row][col] = 'X'; // An die Stelle, wo das O war steht jetzt ein X
+    game_field[row][col] = 'X';
   } else if (game_field[row][col] == 'X' || game_field[row][col] == 'H') {
     printf("You've already attacked this location.\n");
   } else {
@@ -63,11 +61,8 @@ void attack(char game_field[NUM_ROWS][NUM_COLUMNS]) {
 
 
 int main()
-{ /* Wie setzt man die Schiffe?
-    
-        
-*/
-   //welcome_screen();
+{
+    welcome_screen();
 
     char game_field[NUM_ROWS][NUM_COLUMNS];
     // Initialisiert das Spielfeld
@@ -76,7 +71,6 @@ int main()
         game_field[i][j] = 'O';
         }
     }
-
     print_game_field(game_field);
 
     return 0;
