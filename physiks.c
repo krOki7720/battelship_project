@@ -22,22 +22,26 @@ void init_board(char board[ROWS][COLUMNS]){  //Initialisiert das Spielfeld
   }
 }
 
-void check_ship_placement (int row, int col, int direction, int lenght ){
-if (row < 0 || row >= ROWS || col < 0 || col >= COLUMNS) {
-return 0;
-}
-
-if (direction == 0) { // Horizontal
-    if (col + length > COLUMNS) {
+int check_ship_placement(int row, int col, int direction, int length) {
+    if (row < 0 || row >= ROWS || col < 0 || col >= COLUMNS) {
+        printf("Error: Ship placement is out of the grid's boundaries.\n");
         return 0;
     }
-
-    if (row + length > ROWS) {  // Vertical
+    if (direction == 0) { // Horizontal
+        if (col + length > COLUMNS) {
+            printf("Error: Ship placement exceeds the grid's width.\n");
+            return 0;
+        }
+    } else if (direction == 1) { // Vertical
+        if (row + length > ROWS) {
+            printf("Error: Ship placement exceeds the grid's height.\n");
+            return 0;
+        }
+    } else {
+        printf("Error: Invalid direction value.\n");
         return 0;
     }
-}
-
-return 1;
+    return 1;
 }
 
 
